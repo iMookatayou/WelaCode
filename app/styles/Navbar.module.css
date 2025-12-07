@@ -1,0 +1,227 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: none !important;
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.8rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative; /* เพื่อวางเมนู absolute ตอน mobile */
+}
+
+/* BRAND LEFT */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+/* NAV RIGHT */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b5563;
+  text-decoration: none;
+  background: transparent;
+  box-shadow: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+/* underline */
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #4b3f72;
+  transition: width 200ms ease, opacity 200ms ease;
+  opacity: 0;
+}
+
+.navLink:hover {
+  color: #111827;
+  transform: translateY(-1px);
+}
+
+.navLink:hover::after {
+  width: 80%;
+  opacity: 1;
+}
+
+/* ACTIVE MENU */
+.navLinkActive {
+  color: #111827;
+  background: transparent;
+  box-shadow: none;
+}
+
+.navLinkActive::after {
+  width: 80%;
+  opacity: 1;
+}
+
+.navLabel {
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+.navLabelChar {
+  display: inline-block;
+  transform-origin: bottom;
+}
+
+/* wave animation */
+@keyframes floatWave {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navLink:hover .navLabelChar {
+  animation: floatWave 420ms ease;
+  animation-delay: calc(var(--char-index) * 40ms);
+}
+
+/* HAMBURGER BUTTON – desktop ซ่อน, mobile โชว์ */
+.navToggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.2rem;
+}
+
+.navToggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111827;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* แอนิเมชันเวลาเปิดเมนูให้เป็น X */
+.navToggleOpen span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navToggleOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.navToggleOpen span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0.7rem 1.1rem;
+  }
+
+  .logoImage {
+    height: 56px;
+  }
+
+  .navToggle {
+    display: flex; /* โชว์ปุ่มสามขีด */
+  }
+
+  .nav {
+    /* ซ่อนเมนูไว้ก่อนบนมือถือ */
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 0.8rem 1rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .navOpen {
+    display: flex; /* เปิดเมนูเมื่อ state = open */
+  }
+
+  .navLink {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    background: transparent;
+    text-align: left;
+  }
+
+  .navLink:hover {
+    background: #f3f4f6;
+    transform: none;
+  }
+
+  /* ปิด wave animation บน mobile ให้ลื่นขึ้น */
+  .navLink:hover .navLabelChar {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .logoImage {
+    height: 48px;
+  }
+
+  .nav {
+    padding: 0.7rem 0.9rem 0.9rem;
+  }
+
+  .navLink {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.8rem;
+  }
+}

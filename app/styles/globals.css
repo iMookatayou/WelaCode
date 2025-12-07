@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ให้ body ทำหน้าที่แค่ฟอนต์ + สีตัวหนังสือเบสิก */
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0f172a; /* text เข้มกลาง ๆ */
+  background: #ffffff; /* พื้นหลังขาวโล่ง */
+}
+
+/* ปรับพวก element พื้นฐานให้ดูดีนิดหน่อยแต่ไม่บังคับ layout */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ปุ่ม / input ใช้ฟอนต์เดียวกับ body */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Heading ไม่ยุ่งเรื่อง margin มาก ปล่อยให้แต่ละหน้าจัดเองได้ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ยก margin default ของ p ออกแล้วให้หน้าที่ไปจัดเอง */
+p {
+  margin: 0;
+}
+
+/* ให้ page scroll นุ่มหน่อย */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px; /* ประมาณความสูง Navbar ปรับเป็น 64 / 80 ก็ได้ตามตาเห็น */
+}
+
+/* ========== OPTIONAL: utility เล็ก ๆ ที่ไม่บังคับดีไซน์ ========== */
+
+/* class ใช้ทั่วเว็บได้ แต่ไม่ไป fix max-width อะไรทั้งนั้น */
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
