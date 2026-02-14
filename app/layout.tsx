@@ -14,14 +14,24 @@ const siteUrl = new URL(
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
+
   title: {
     default: "WelaCode · Software Studio",
     template: "%s · WelaCode",
   },
+
   description: "Calm, reliable web apps and internal tools.",
+
+  icons: {
+    icon: "/CropwelaCode3.png",
+    shortcut: "/CropwelaCode3.png",
+    apple: "/CropwelaCode3.png",
+  },
+
   alternates: {
     canonical: siteUrl,
   },
+
   openGraph: {
     title: "WelaCode · Software Studio",
     siteName: "WelaCode",
