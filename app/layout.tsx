@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
@@ -9,35 +8,35 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const siteUrl = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://welacode.vercel.app"
+);
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://welacode.vercel.app"), // change to your real Vercel URL
-  title: "WelaCode",
-  description: "WelaCode – Modern authentication and web experience.",
-  icons: {
-    icon: "/favicon.ico",      // put favicon.ico in /public
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+  metadataBase: siteUrl,
+  title: {
+    default: "WelaCode · Software Studio",
+    template: "%s · WelaCode",
+  },
+  description: "Calm, reliable web apps and internal tools.",
+  alternates: {
+    canonical: siteUrl,
   },
   openGraph: {
-    title: "WelaCode",
+    title: "WelaCode · Software Studio",
     siteName: "WelaCode",
-    description: "Authentication and web platform by WelaCode.",
-    url: "https://welacode.vercel.app", 
+    description: "Calm, reliable web apps and internal tools.",
+    url: siteUrl,
     type: "website",
+    locale: "en_US",
     images: [
       {
-        url: "/images/CropWelaCode1.png", 
+        url: "/images/CropWelaCode1.png",
         width: 1200,
         height: 630,
         alt: "WelaCode",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "WelaCode",
-    description: "Authentication and web platform by WelaCode.",
-    images: ["/images/CropWelaCode1.png"],
   },
 };
 

@@ -48,7 +48,6 @@ export default function CookieConsent() {
         }}
       >
         <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-          {/* Blueberry Cookie Icon */}
           <div
             style={{
               width: 44,
@@ -115,7 +114,7 @@ export default function CookieConsent() {
             gap: 8,
           }}
         >
-          {/* Reject */}
+          
           <button
             onClick={() => updateConsent("rejected")}
             style={{
@@ -131,7 +130,6 @@ export default function CookieConsent() {
             Reject
           </button>
 
-          {/* Accept */}
           <button
             onClick={() => updateConsent("accepted")}
             style={{

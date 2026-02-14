@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Head from "next/head";
 import styles from "@/styles/Landing.module.css";
 import {
@@ -17,66 +18,58 @@ import Gridbix from "@/components/Grid";
 import { motion } from "framer-motion";
 
 export default function LandingPage() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    window.history.scrollRestoration = "manual";
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, 50);
+  }, []);
+
   return (
     <>
       <Head>
         <title>WelaCode · Software Studio</title>
         <meta
           name="description"
-          content="WelaCode is a small, hands-on studio that designs and builds calm, long-lasting web apps and internal systems for teams who care about clarity and reliability."
+          content="WelaCode designs calm, reliable web apps and internal tools for teams who value clarity."
         />
       </Head>
 
       <main className={styles.page}>
-        {/* HERO – FULL WIDTH PROMO */}
         <Intro>
           <header className={styles.heroWrapper} id="top">
             <section className={styles.hero}>
-              {/* LEFT – MAIN COPY */}
               <div className={styles.heroLeft}>
-                {/* HEADLINE */}
                 <motion.h1 className={styles.heroTitle}>
+                  <motion.span className={styles.heroLine}>WelaCode</motion.span>
+
                   <motion.span className={styles.heroLine}>
-                    WelaCode Group
+                    <span className={styles.heroBadgeSoftware}>Software</span>
                   </motion.span>
 
                   <motion.span className={styles.heroLine}>
-                    <span className={styles.heroBadgeSoftware}>Software</span>{" "}
-                    for clear focused teams
+                    Built with clarity
                   </motion.span>
+                </motion.h1>
 
-                {/* บรรทัดสุดท้าย */}
-                <motion.span
-                  className={`${styles.heroLine} ${styles.heroTiltSmall}`}
-                  initial={{ rotate: -1, x: 4, opacity: 0 }}
-                  animate={{ rotate: 0, x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  built for teams who create with clarity
-                </motion.span>
-
-              </motion.h1>
-
-                {/* TAGLINE PILL ใต้หัว */}
                 <motion.div
-                  initial={{ opacity: 0, x: -20, y: 6 }}
-                  animate={{ opacity: 1, x: 0, y: 6 }}
-                  transition={{
-                    delay: 0.4,
-                    duration: 0.45,
-                    type: "spring",
-                    stiffness: 140,
-                  }}
-                  className={styles.heroMeta}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className={styles.heroMetaClean}
                 >
-                  <span className={styles.heroMetaItem}>Web apps</span>
-                  <span className={styles.heroMetaDot}>•</span>
-                  <span className={styles.heroMetaItem}>Internal tools</span>
-                  <span className={styles.heroMetaDot}>•</span>
-                  <span className={styles.heroMetaItem}>UX &amp; UI</span>
+                  <span>Web apps</span>
+                  <span>Internal tools</span>
+                  <span>UX &amp; UI</span>
                 </motion.div>
 
-                {/* SUBTITLE */}
                 <motion.p
                   className={styles.heroSubtitle}
                   initial={{ opacity: 0, y: 10 }}
@@ -94,8 +87,8 @@ export default function LandingPage() {
                   transition={{ delay: 0.75, duration: 0.45 }}
                 >
                   We help teams turn messy workflows into calm well structured
-                  tools from internal dashboards to customer facing products that
-                  feel intentional not noisy
+                  tools from internal dashboards to customer facing products
+                  that feel intentional not noisy
                 </motion.p>
 
                 <motion.ul
@@ -125,8 +118,8 @@ export default function LandingPage() {
               <div className={styles.heroRight}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, rotate: -4, y: 40 }}
-                  animate={{ opacity: 1, scale: 1.2, rotate: 0, y: -150 }}    
-                  whileHover={{ scale: 1.25, rotate: 2, y: -105 }}            
+                  animate={{ opacity: 1, scale: 1.2, rotate: 0, y: -150 }}
+                  whileHover={{ scale: 1.25, rotate: 2, y: -105 }}
                   transition={{ duration: 0.6, type: "spring", stiffness: 120 }}
                 >
                   <Gridbix />
@@ -197,7 +190,7 @@ export default function LandingPage() {
                 <div className={styles.valueIconCentered}>
                   <Cpu size={32} strokeWidth={1.7} />
                 </div>
-                <h3>Front-to-back performance & reliability</h3>
+                <h3>Front-to-back performance &amp; reliability</h3>
                 <p>
                   Fast response on the surface supported by tuned services,
                   caching, and architecture underneath.
@@ -218,7 +211,6 @@ export default function LandingPage() {
           </section>
         </Intro>
 
-        {/* WHY / OFFER SECTION */}
         <Intro>
           <section className={styles.section} id="why">
             <div className={styles.sectionHeader}>
@@ -228,8 +220,8 @@ export default function LandingPage() {
               <h2>What it&apos;s like to work with WelaCode</h2>
               <p>
                 We&apos;re not a high-volume agency. We take on a small number
-                of projects so we can stay close to the details and be
-                reachable when you need us.
+                of projects so we can stay close to the details and be reachable
+                when you need us.
               </p>
             </div>
 
@@ -261,7 +253,6 @@ export default function LandingPage() {
           </section>
         </Intro>
 
-        {/* SERVICES */}
         <Intro>
           <section className={styles.section} id="services">
             <div className={styles.sectionHeader}>
@@ -317,7 +308,6 @@ export default function LandingPage() {
           </section>
         </Intro>
 
-        {/* PROCESS */}
         <Intro>
           <section className={styles.section} id="process">
             <div className={styles.sectionHeader}>
@@ -374,7 +364,6 @@ export default function LandingPage() {
           </section>
         </Intro>
 
-        {/* CONTACT */}
         <Intro>
           <section className={styles.section} id="contact">
             <div className={styles.contactCard}>
@@ -386,7 +375,7 @@ export default function LandingPage() {
               </p>
               <div className={styles.contactActions}>
                 <a
-                  href="mailto:hello@welacode.dev"
+                  href="mailto:welacode.dev@gmail.com"
                   className={styles.heroPrimaryBtn}
                 >
                   Email the studio

@@ -15,22 +15,22 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  position: relative; /* เพื่อวางเมนู absolute ตอน mobile */
+  position: relative; 
 }
 
-/* BRAND LEFT */
 .brand {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .logoImage {
-  height: 70px;
-  width: auto;
   display: block;
+  height: 110px;
+  width: 120px;
+  object-fit: contain;
 }
 
-/* NAV RIGHT */
 .nav {
   display: flex;
   align-items: center;
@@ -53,7 +53,6 @@
   transition: color 160ms ease, transform 160ms ease;
 }
 
-/* underline */
 .navLink::after {
   content: "";
   position: absolute;
@@ -100,7 +99,6 @@
   transform-origin: bottom;
 }
 
-/* wave animation */
 @keyframes floatWave {
   0% {
     transform: translateY(0);
@@ -118,7 +116,6 @@
   animation-delay: calc(var(--char-index) * 40ms);
 }
 
-/* HAMBURGER BUTTON – desktop ซ่อน, mobile โชว์ */
 .navToggle {
   display: none;
   flex-direction: column;
@@ -138,7 +135,6 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* แอนิเมชันเวลาเปิดเมนูให้เป็น X */
 .navToggleOpen span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -151,8 +147,6 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========== RESPONSIVE ========== */
-
 @media (max-width: 768px) {
   .inner {
     padding: 0.7rem 1.1rem;
@@ -160,14 +154,14 @@
 
   .logoImage {
     height: 56px;
+    width: 96px;
   }
 
   .navToggle {
-    display: flex; /* โชว์ปุ่มสามขีด */
+    display: flex;
   }
 
   .nav {
-    /* ซ่อนเมนูไว้ก่อนบนมือถือ */
     display: none;
     position: absolute;
     top: 100%;
@@ -182,7 +176,7 @@
   }
 
   .navOpen {
-    display: flex; /* เปิดเมนูเมื่อ state = open */
+    display: flex; 
   }
 
   .navLink {
@@ -198,7 +192,6 @@
     transform: none;
   }
 
-  /* ปิด wave animation บน mobile ให้ลื่นขึ้น */
   .navLink:hover .navLabelChar {
     animation: none;
   }
@@ -214,6 +207,7 @@
 
   .logoImage {
     height: 48px;
+    width: 84px;
   }
 
   .nav {

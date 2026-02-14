@@ -15,12 +15,10 @@
   color: #0f172a;
 }
 
-/* ========= HERO ========= */
-
 .heroWrapper {
   width: 100%;
   background: #ffffff;
-  padding: 4.5rem 0 3.5rem;
+  padding: 2.2rem 0 3.2rem; 
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -32,10 +30,6 @@
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
   gap: 3.2rem;
   align-items: center;
-
-  opacity: 0;
-  transform: translateY(18px);
-  animation: heroFadeIn 650ms ease-out forwards;
 }
 
 @keyframes heroFadeIn {
@@ -81,15 +75,12 @@
   letter-spacing: -0.02em;
 }
 
-/* บรรทัดบน Welacode Group */
-
 .heroIntro {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--bb-mid);
   display: inline-block;
-  /* เอาเอียงออก */
   transform: none;
 }
 
@@ -104,7 +95,6 @@
   letter-spacing: 0.05em;
   text-transform: none;
 
-  /* เอียงน้อยลง + ขยับลงนิดหน่อยกันโดนกินบน Windows */
   transform: rotate(-2deg) translateY(6px);
   transform-origin: center;
 
@@ -112,11 +102,13 @@
   line-height: 1;
 
   margin-right: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 
 .heroGridRaise {
-  transform: translateY(-300px); /* ปรับเลขนี้ตามที่ต้องการ */
+  transform: translateY(-300px);
 }
+
 /* แท็กไลน์ด้านล่าง (ถ้าใช้) */
 
 .heroTagline {
@@ -647,8 +639,14 @@
   color: #6b7280;
 }
 
-/* ========= RESPONSIVE ========= */
-
+.heroMetaClean {
+  display: flex;
+  gap: 2.2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
@@ -676,10 +674,9 @@
 
 @media (max-width: 640px) {
   .heroWrapper {
-    padding: 2.2rem 0 1.6rem;
+    padding: 1.4rem 0 1.6rem;
   }
 
-  /* hero เป็นคอลัมน์ และย้าย Grid ไปบนสุด */
   .hero {
     display: flex;
     flex-direction: column;
@@ -693,7 +690,6 @@
     margin-bottom: 0.8rem;
   }
 
-  /* ยกเลิกการยก Grid บนมือถือ + จัดให้อยู่กลาง */
   .heroGridRaise {
     transform: none;
     margin: 0 auto;

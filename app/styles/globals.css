@@ -68,12 +68,20 @@ p {
 /* ให้ page scroll นุ่มหน่อย */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 30px; /* ประมาณความสูง Navbar ปรับเป็น 64 / 80 ก็ได้ตามตาเห็น */
 }
 
-/* ========== OPTIONAL: utility เล็ก ๆ ที่ไม่บังคับดีไซน์ ========== */
+/* กันโดน navbar (fixed/sticky) กินเวลาคลิก anchor (#id) */
+:root {
+  --nav-h: 84px; /* ปรับเลขนี้ให้เท่าความสูง navbar จริง */
+}
 
-/* class ใช้ทั่วเว็บได้ แต่ไม่ไป fix max-width อะไรทั้งนั้น */
+section[id],
+header[id],
+main[id],
+[id="top"] {
+  scroll-margin-top: var(--nav-h);
+}
+
 .full-width {
   width: 100%;
 }

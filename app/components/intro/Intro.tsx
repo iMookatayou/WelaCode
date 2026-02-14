@@ -17,7 +17,6 @@ const Intro: React.FC<IntroProps> = ({ children }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // เข้าหน้าจอ → true, ออก → false
         setIsVisible(entry.isIntersecting);
       },
       {

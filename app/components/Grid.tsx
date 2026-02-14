@@ -87,15 +87,11 @@ const Gridbix = () => {
             gap: 0,
           }}
         >
-          {/* --- Column 1 --- */}
           <div style={{ gridColumn: '1', gridRow: '1', width: size, height: size, backgroundColor: colors.red, borderTopLeftRadius: borderRadius, borderBottomLeftRadius: borderRadius }} />
           <div style={{ gridColumn: '1', gridRow: '2', width: size, height: size, backgroundColor: colors.purple, borderTopLeftRadius: borderRadius, borderBottomLeftRadius: borderRadius }} />
           <div style={{ gridColumn: '1', gridRow: '3', width: size, height: size, backgroundColor: colors.green, borderTopLeftRadius: borderRadius, borderBottomLeftRadius: borderRadius, borderBottomRightRadius: borderRadius }} />
-
-          {/* --- Column 2 --- */}
           <div style={{ gridColumn: '2', gridRow: '1', width: size, height: size, backgroundColor: colors.coral, borderTopRightRadius: borderRadius, borderBottomRightRadius: borderRadius }} />
           
-          {/* Ocean Circle (กลาง) - ใช้สีน้ำคืนมาแล้ว */}
           <div 
             className="ocean-bg"
             style={{ 
@@ -116,9 +112,6 @@ const Gridbix = () => {
 
           <div style={{ gridColumn: '2', gridRow: '3', width: size, height: size, backgroundColor: colors.yellow, borderTopRightRadius: borderRadius, borderBottomRightRadius: borderRadius, borderBottomLeftRadius: borderRadius }} />
 
-          {/* --- Column 3 --- */}
-          
-          {/* 1. แท่งยาวด้านบน */}
           <div
             className="ocean-bg tall-box"
             style={{
@@ -144,7 +137,6 @@ const Gridbix = () => {
             <div className="wave-layer wave-4"></div>
           </div>
 
-          {/* 2. บล็อคเดียวด้านล่าง */}
           <div
             style={{
               gridColumn: '3',

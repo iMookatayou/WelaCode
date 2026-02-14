@@ -8,11 +8,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-
-        {/* COLUMNS ONLY */}
         <div className={styles.cols}>
-
-          {/* SERVICES */}
           <div>
             <div className={styles.heading}>Services</div>
             <ul className={styles.list}>
@@ -22,8 +18,6 @@ export default function Footer() {
               <li>UX / UI Design</li>
             </ul>
           </div>
-
-          {/* CONTACT */}
           <div>
             <div className={styles.heading}>Contact</div>
             <ul className={styles.list}>
@@ -33,20 +27,12 @@ export default function Footer() {
               </li>
               <li>Line / Discord / Telegram</li>
             </ul>
-
-            {/* SOCIAL ICONS */}
             <div className={styles.socials}>
-              <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="#" aria-label="Instagram"><FaInstagram /></a>
-              <a href="#" aria-label="TikTok"><FaTiktok /></a>
-              <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
+              <a href="https://www.instagram.com/welacode.dev/" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
-
         </div>
       </div>
-
-      {/* BOTTOM BAR */}
       <div className={styles.bottom}>
         <span>© {year} All rights reserved.</span>
         <div className={styles.bottomLinks}>

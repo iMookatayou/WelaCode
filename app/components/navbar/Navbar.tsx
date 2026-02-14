@@ -23,9 +23,7 @@ const Navbar: FC = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const handleToggle = () => {
-    setOpen((prev) => !prev);
-  };
+  const handleToggle = () => setOpen((prev) => !prev);
 
   const handleNavClick = () => {
     // ปิดเมนูหลังจากกดลิงก์บนมือถือ
@@ -35,24 +33,23 @@ const Navbar: FC = () => {
   return (
     <header className={styles.navbar}>
       <div className={styles.inner}>
-        {/* LEFT: BRAND – ONLY LOGO */}
         <div className={styles.brand}>
-          <Image
-            src="/images/CropWelaCode.png"
-            alt="WelaCode Logo"
-            width={120}
-            height={40}
-            className={styles.logoImage}
-            priority
-          />
+          <Link href="/landingpage#top" aria-label="WelaCode Home">
+            <Image
+              src="/images/CropWelaCode2.png"
+              alt="WelaCode Logo"
+              width={100}
+              height={60}
+              className={styles.logoImage}
+              priority
+              unoptimized
+            />
+          </Link>
         </div>
 
-        {/* HAMBURGER BUTTON (mobile) */}
         <button
           type="button"
-          className={`${styles.navToggle} ${
-            open ? styles.navToggleOpen : ""
-          }`}
+          className={`${styles.navToggle} ${open ? styles.navToggleOpen : ""}`}
           aria-label="Toggle navigation menu"
           aria-expanded={open}
           onClick={handleToggle}
@@ -62,7 +59,6 @@ const Navbar: FC = () => {
           <span />
         </button>
 
-        {/* RIGHT: NAV */}
         <nav className={`${styles.nav} ${open ? styles.navOpen : ""}`}>
           {navItems.map((item) => {
             const isActive =

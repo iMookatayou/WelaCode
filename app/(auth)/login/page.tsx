@@ -13,7 +13,6 @@ export default function LoginPage() {
   return (
     <main className={styles.page}>
       <div className={styles.card}>
-        {/* ===== LEFT HALF (show Sign In form when isSignIn) ===== */}
         <div
           className={`${styles.side} ${styles.sideLeft} ${
             isSignIn ? styles.sideActive : ""
@@ -153,7 +152,6 @@ export default function LoginPage() {
           </AnimatePresence>
         </div>
 
-        {/* ===== BLUE SLIDER (เลื่อนซ้าย–ขวา) ===== */}
         <motion.div
           className={styles.slider}
           initial={false}
